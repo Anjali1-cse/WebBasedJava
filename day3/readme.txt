@@ -9,6 +9,14 @@ Set:
   Dynamic Web Module Version: 3.1 or 4.0
 Finish
 
+Project/
+ ├─ src/main/java/        (Java files: Servlets)
+ ├─ WebContent/ or webapp/ (HTML, JSP, CSS, JS)
+ └─ WEB-INF/
+      └─ web.xml          (Deployment descriptor)
+Install JDK → Install Tomcat → Create Project → Add HTML/JSP →
+Create Servlet → Configure web.xml → Add Logic → Deploy → Test
+
 2. Create a New Dynamic Web Project (Eclipse/IDE)
 File → New → Dynamic Web Project
 New → Servlet
