@@ -109,7 +109,7 @@ the 2nd option used when a servlet is meant for accepting any type  of REQUEST.
 
 the 3rd option used when a servlet is meant for accepting any http request.
 
-jakarta EE as a Specification:
+jakarta EE as a Specification(means set of rules):
  it is Specification not an implementation.
  the implementation is provide by 3rd party software known as either a web Server
  (servlet ,jsp ) or Application server(servlet,jsp , EJB)
