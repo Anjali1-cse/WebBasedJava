@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "example.entity.Project" table = "Project_Master">
+      <id name = "projectId" type = "int" column = "project_id"/>         
+      <property name = "title" column = "project_title" type = "string"/>
+      <property name = "mainTech" column = "project_mainTech" type = "string"/>   
+      <property name = "duration" column = "project_dur" type = "int"/>     
+        
+   </class>
+</hibernate-mapping>
