@@ -1,0 +1,120 @@
+performing data retrieval: in order to retrieve the data from DB table using Hibernate
+the Session interface provide find() method.
+ find() it load an object based upon the identity.
+ since it is DQL operation, it doesnot require Transaction.
+
+Performing Data Update:
+
+In order to perform an update,
+ it is first necessary to load the entity on which the update operation is required. This is done using the find() method.
+Once the entity is loaded, its state can be modified at any time using setter methods. These changes affect the state of the entity but do not immediately update the database.
+To complete the update operation and reflect the changes in the database, it is necessary to use commit the transactions.
+
+
+Performing Data delete:
+
+In order to perform an delete,
+ it is first necessary to load the entity on which the delete operation is required. This is done using the find() method.
+Once the entity is loaded, its can be deleted by remove methods. These changes affect the state of the entity but do not immediately delete the database.
+To complete the delete operation and reflect the changes in the database, it is necessary to use commit the transactions.
+
+Entity Persistence Life cycle:- 
+ this life cycle of an entity consist of several stages and they are associted with a single object that is called
+ as persistence context.
+ Persistence context is object that is solely responsible for handling all the persistence related Operations(CURD).
+ Eg.  in JDBC  it is java.sql.Connection whereas in hibernate it is org.hibernate.Session.
+   there are four states involved
+   1.Transient
+   2.Persistent
+   3.Detached
+   4.Removed
+1.Transient: when entity is not associted with the persistence context(Session) then it is said to be Transient state.
+        eg:       Exam examObj = new Exam("102", "DBT", "theroy",60);
+  At this time, the entity doesnot hava its own identity.
+
+ 2.Persistent: when an entity is associted with context(Session). then it is said to be Persistent state.
+    this time, the entity has its  own identity.
+          eg:       sessionObj.persist(examObj);// store the data
+                    Exam foundExam=sessionObj.find(Exam.class, "103");
+
+ 3.Detached: if the persistence context(Session) with which an entity is associted getsClosed, then that 
+             entity goes into detached state.   
+        eg:   sessionObj.close();
+		      factory.close();      
+
+4.Removed: the entity goes removed state when the  removed.
+
+
+
+
+                        ┌────────────────────────────────────┐
+                        │      Persistence Context           │
+                        │   (Hibernate Session / JPA EM)     │
+                        └────────────────────────────────────┘
+                                      ▲
+                                      │
+                                      │
+        ┌──────────────────────────────────────────────────────────┐
+        │                                                          │
+        │                ENTITY LIFE CYCLE STATES                  │
+        │                                                          │
+        └──────────────────────────────────────────────────────────┘
+
+
+  ┌────────────┐        persist()/save()        ┌────────────────┐
+  │            │  ----------------------------> │                │
+  │ Transient  │                                │  Persistent    │
+  │            │  <---------------------------- │  (Managed)     │
+  └────────────┘       detach()/clear()/close   └────────────────┘
+                             or session close
+                                      │
+                                      │ remove()
+                                      ▼
+                              ┌──────────────┐
+                              │   Removed    │
+                              └──────────────┘
+                                      ▲
+                                      │
+                                      │  entity still exists in memory
+                                      │
+                     detach()/session.close()
+                                      │
+                                      ▼
+                              ┌──────────────┐
+                              │   Detached   │
+                              └──────────────┘
+                                      │
+                                      │ merge()
+                                      ▼
+                               ┌─────────────┐
+                               │ Persistent  │
+                               └─────────────┘
+
+Assocition Mapping: when an entity is associted with another entity or several entities , then it is called 
+associted or relationship.
+the mapping between 2 entities is known as assocition mapping.
+since associtions express relationships, it  is also known as relationship Mapping.
+
+in case of java (hibernate) there 4 type of relationship
+1.one to one
+2.one to many 
+3.many to one
+4.many to many
+ every relationship is futher divided in 2 types:
+ 1. Unidirectional
+ 2. Bidirectional
+
+this means there are 8 relationships, but actually, there are 7 because one-to-many Bidirectional or many-to-one Bidirectional are same.
+in order to implement assocition mapping, JPA provide revlent annotations.
+1.@OneToOne
+2.@OneToMany
+3.ManyToOne
+4.ManyToMany
+.
+
+Hibernate Query language(HQL):
+Since ervery ORM has its Own query language, Hibernate provides HQl that allow to perform query operation
+on the Db table.
+
+it is especially used while retrieving multiple record from the DB table.
+Since Rdbms understand only Sql format, HQl in turn gets converted into SQl and futher the query is fired on the Db.

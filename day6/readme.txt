@@ -208,35 +208,35 @@ Then:
 ============================== HIBERNATE DEVELOPMENT ENVIRONMENT ==============================
 
    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-   │                                       JAVA (JDK)                                         │
+   │                                       JAVA (JDK)                                        │
    └─────────────────────────────────────────────────────────────────────────────────────────┘
                                    |
                                    v
    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-   │                                           IDE                                            │
-   │                            (Eclipse / IntelliJ / STS / VS Code)                          │
+   │                                           IDE                                           │
+   │                            (Eclipse / IntelliJ / STS / VS Code)                         │
    └─────────────────────────────────────────────────────────────────────────────────────────┘
                                    |
                                    v
    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-   │                               HIBERNATE LIBRARIES (JARs)                                 │
-   │                     (Added through Maven → hibernate-core dependency)                    │
+   │                               HIBERNATE LIBRARIES (JARs)                                │
+   │                     (Added through Maven → hibernate-core dependency)                   │
    └─────────────────────────────────────────────────────────────────────────────────────────┘
                                    |
                                    v
    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-   │                                  PROJECT STRUCTURE                                       │
-   │------------------------------------------------------------------------------------------│
-   │ 1. ENTITY CLASS → example.entity.Project                                                 │
-   │ 2. MAPPING METADATA → Project.hbm.xml  OR  JPA Annotations                               │
-   │ 3. CONFIGURATION METADATA → hibernate.cfg.xml / properties / programmatic                │
-   │ 4. MAIN CLASS → example.main.App                                                         │
-   │ 5. UTILS → HibernateUtil (SessionFactory provider)                                       │
+   │                                  PROJECT STRUCTURE                                      │
+   │-----------------------------------------------------------------------------------------│
+   │ 1. ENTITY CLASS → example.entity.Project                                                │
+   │ 2. MAPPING METADATA → Project.hbm.xml  OR  JPA Annotations                              │
+   │ 3. CONFIGURATION METADATA → hibernate.cfg.xml / properties / programmatic               │
+   │ 4. MAIN CLASS → example.main.App                                                        │
+   │ 5. UTILS → HibernateUtil (SessionFactory provider)                                      │
    └─────────────────────────────────────────────────────────────────────────────────────────┘
                                    |
                                    v
    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-   │                                     DATABASE (MySQL)                                     │
+   │                                     DATABASE (MySQL)                                    │
    └─────────────────────────────────────────────────────────────────────────────────────────┘
 
 ==============================================================================================
@@ -350,14 +350,14 @@ example.utils → HibernateUtil
 
  Application Layer
  ─────────────────────────────────────────────────────────────────────────────
- |  Your Java Code (main, DAO, Services)                                      |
+ |  Your Java Code (main, DAO, Services)                                     |
  ─────────────────────────────────────────────────────────────────────────────
 
  Hibernate Framework Layer
  ┌────────────────────────────────────────────────────────────────────────────┐
  │ Configuration          → Loads cfg.xml / properties                        │
  │ SessionFactory         → Heavy object, thread-safe                         │
- │ Session                → Light object, represents DB connection             │
+ │ Session                → Light object, represents DB connection            │
  │ Transaction            → Manages commit/rollback                           │
  │ Query / HQL / Criteria → Fetching & querying data                          │
  └────────────────────────────────────────────────────────────────────────────┘
@@ -387,50 +387,50 @@ example.utils → HibernateUtil
 ============================== HIBERNATE FLOW =================================
 
                    ┌────────────────────────┐
-                   │   Load Configuration    │
-                   │  (hibernate.cfg.xml)    │
+                   │   Load Configuration   │
+                   │  (hibernate.cfg.xml)   │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │   Build SessionFactory  │
+                   │   Build SessionFactory │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │      Open Session       │
+                   │      Open Session      │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │     Begin Transaction   │
+                   │     Begin Transaction  │
                    └────────────────────────┘
                                |
                                v
        ┌───────────CRUD Operation────────────┐
-       │   save() / update() / delete()       │
-       │   get() / load() / query()           │
-       └──────────────────────────────────────┘
+       │   save() / update() / delete()      │
+       │   get() / load() / query()          │
+       └─────────────────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │   Hibernate Generates   │
-                   │      SQL (internally)   │
+                   │   Hibernate Generates  │
+                   │      SQL (internally)  │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │   JDBC Executes Query   │
+                   │   JDBC Executes Query  │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │   Commit Transaction    │
+                   │   Commit Transaction   │
                    └────────────────────────┘
                                |
                                v
                    ┌────────────────────────┐
-                   │      Close Session      │
+                   │      Close Session     │
                    └────────────────────────┘
 
 ===============================================================================
