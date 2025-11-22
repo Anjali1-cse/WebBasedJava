@@ -112,9 +112,38 @@ in order to implement assocition mapping, JPA provide revlent annotations.
 4.ManyToMany
 .
 
-Hibernate Query language(HQL):
-Since ervery ORM has its Own query language, Hibernate provides HQl that allow to perform query operation
-on the Db table.
+Hibernate Query Language (HQL):
+Since every ORM has its own query language, Hibernate provides HQL that allows to perform query operations on the DB table.
 
-it is especially used while retrieving multiple record from the DB table.
-Since Rdbms understand only Sql format, HQl in turn gets converted into SQl and futher the query is fired on the Db.
+It is especially used while retrieving multiple records from the DB table.
+Since RDBMS understands only SQL format, HQL in turn gets converted into SQL and further the query is fired on the DB.
+
+Just like SQL, HQL provides several clauses out of which 2 are very frequently used.
+1.FROM
+2.SELECT
+
+FROM:
+It is the simplest form of HQL.
+It populates a list of entity objects directly and hence processing becomes very easy.
+
+In order to use HQL, Hibernate provides an interface: org.hibernate.query.Query.
+
+To use this interface, it is necessary to obtain its reference.
+It is possible using createQuery() method from Session interface.
+
+Although, FROM clause is the simplest form of HQL, it has one drawback.
+Since it loads the entire data of the object, if that data is not fully utilized, it leads to memory implications and therefore it is used only when the whole data is required.
+
+Therefore, in case of loading specific data, SELECT clause is preferred.
+
+SELECT:
+It is used to select specific fields of an entity.
+It populates a list of an array of type java.lang.Object due to which processing is little tricky.
+
+Using Constructor Expression:
+In order to simplify SELECT clause processing, Hibernate provides a special feature known as Constructor Expression.
+
+It allows to instantiate a Java Bean using a parameterized constructor based upon the query string.
+
+
+

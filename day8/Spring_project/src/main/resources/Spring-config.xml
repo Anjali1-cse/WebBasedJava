@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"	
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="example.spring.core.HelloService" id="myBean"/>
+     <bean class="example.spring.core.WeclomeService" id="yourBean"/>
+      <bean class="example.spring.core.UserService" id="userBean">
+            <property name ="name" value="james"/>
+            <property name ="age" value="90"/>
+            </bean>
+      <bean class="example.spring.core.UserService" id="userBean2">
+           <constructor-arg value ="anjali" index= "1"/>
+            <constructor-arg value ="24"  index= "0"/>
+           
+            </bean>      
+</beans>
