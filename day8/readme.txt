@@ -27,7 +27,7 @@ Spring modules:
      
      eg:
 
-                      +-----------------------------+
+                 +-----------------------------+
                  |        Spring AOP           |
                  |  (Aspect Oriented Programming)
                  +-----------------------------+
@@ -125,7 +125,7 @@ Getting started  with Spring Core  functionalities.
 
 1. Bean Management:
       Like Jakarta EE,Spring is also based upon Component Driven architecture.
-       howeverin Jakarta EE , even  through Components Managed by container, they aloways
+       however in Jakarta EE , even  through Components Managed by container, they allways
        need to be Dependent upon some API .
        EG. several implement class aloways extends HttpServlet.
 
