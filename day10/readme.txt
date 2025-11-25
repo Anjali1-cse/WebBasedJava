@@ -180,4 +180,4 @@ Package: example.spring.rest.data.jpa
       └── CourseController
 
 
-
+Talend API Tester - Free Edition for testing api
